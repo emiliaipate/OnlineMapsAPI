@@ -1,7 +1,7 @@
 # OnlineMapsAPI
 
-1. To use the TomTom example, you must first obtain a key from developer.tomtom.com for TomTom OnlineMaps API and enter it where it says "ENTER-API-KEY"
-2. To use the OpenStreet example, you must obtain a key from mapbox https://www.mapbox.com/account/apps/
+1. To use the TomTom example, obtain first an API key from developer.tomtom.com for TomTom OnlineMaps API and enter it where it says "ENTER-API-KEY"
+2. To use the OpenStreet example, obtain first an API key from mapbox https://www.mapbox.com/account/apps/
 3. The Nokia HERE example uses their demo appID and appCode available on the HERE API Explorer
 
 Notes:
