@@ -1,0 +1,94 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+<div id="map" style="height: 100%"></div>
+<script>
+    window.onload = function() {
+		//  create a map in the "map" div, set the view to a given place and zoom
+        var map = L.map('map').setView([46.89374847777778,26.557247266666668], 13);
+		
+		// add an OnlineMaps tile layer
+        L.tileLayer('http://{s}.aerial.maps.cit.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id={appId}&app_code={appCode}', {				
+            subdomains: '1234',
+			appId: 'DemoAppId01082013GAL', // demo app ID from HERE
+			appCode: 'AJKnXv84fjrb0KIHawS0Tg', // demo app Code from HERE
+			attribution: 'Map data &copy; <a href="http://tomtom.com">Nokia HERE</a>',
+			maxZoom: 18,			
+        }).addTo(map);
+		
+		//#nbr cadastru: 50833'
+		// add a marker in the given location, attach some popup content to it and open the popup
+		L.marker([46.89374847777778,26.557247266666668]).addTo(map)
+		.bindPopup('#nbr cadastru: 50833')
+		.openPopup();	
+		
+		// how to obtain the WGS84 decimal degrees: 
+		// 1. use TransDatRo to convert Stereo70 RO points to WGS84 Degrees
+		// 2. use http://www.onlineconversion.com/map_decimaldegrees.htm to convert WGS84 Degrees to WGS84 lat/long points
+		var polygon = L.polygon([
+		[46.89374847777778,26.557247266666668], //x=600526.153, y=618766.822
+		[46.89387880555555, 26.560622991666666],  //600545.709, 619023.714
+		[46.89361725277778, 26.560671936111113], // 600516.715, 619028.017
+		[46.89336545, 26.557183630555556] //600483.490, 618762.813
+		]).addTo(map);
+		
+		//#nbr cadastru: 50834'
+		L.marker([46.89387880555555, 26.560622991666666]).addTo(map)
+		.bindPopup('#nbr cadastru: 50834')
+		.openPopup();		
+		var polygon = L.polygon([
+		[46.89387880555555, 26.560622991666666],  //600545.709, 619023.714
+		[46.893916641666664,26.561603525000002], //x=600551.389, y=619098.332
+		[46.89368765555555, 26.561647522222223], //600526.007, 619102.187
+		[46.89361725277778, 26.560671936111113], // 600516.715, 619028.017
+		]).addTo(map);
+		
+		//#nbr cadastru: 50831'
+		L.marker([46.89638576388889, 26.560605791666667]).addTo(map)
+		.bindPopup('#nbr cadastru: 50831')
+		.openPopup();				
+		var polygon = L.polygon([
+		[46.89638576388889, 26.560605791666667],  //600824.292, 619016.900; 46°53'46.98875"N, 26°33'38.18085"E
+		[46.89631626944444,26.56158568888889], //600818.043, 619091.702; 46°53'46.73857"N,  26°33'41.70848"E
+		[46.89553731944444, 26.56148857777778], //600731.329, 619086.015; 46°53'43.93435"N, 26°33'41.35888"E
+		[46.89560881944444, 26.560520697222223], // 600737.819, 619012.123;  46°53'44.19175"N,  26°33'37.87451"E
+		], {color: 'red', fillColor: '#f03',fillOpacity: 0.5}).addTo(map);
+		
+		//#nbr cadastru: 50832'
+		L.marker([46.89636881388889, 26.557700633333333]).addTo(map)
+		.bindPopup('#nbr cadastru: 50832')
+		.openPopup();				
+		var polygon = L.polygon([
+		[46.89636881388889, 26.557700633333333], //600842.776, 618795.620; 46°53'46.92773"N,   26°33'27.72228"E
+		[46.89638576388889, 26.560605791666667],  //600824.292, 619016.900; 46°53'46.98875"N, 26°33'38.18085"E
+		[46.89560881944444, 26.560520697222223], // 600737.819, 619012.123;  46°53'44.19175"N,  26°33'37.87451"E
+		[46.89583208333333, 26.557497672222222], //600758.089, 618781.334;  46°53'44.99550"N,  26°33'26.99162"E
+		], {color: 'red', fillColor: '#f03',fillOpacity: 0.5}).addTo(map);
+
+		//#nbr cadastru: 50829'
+		L.marker([46.889028933333336, 26.572988758333334]).addTo(map)
+		.bindPopup('#nbr cadastru: 50829')
+		.openPopup();				
+		var polygon = L.polygon([
+		[46.889028933333336, 26.572988758333334], //600025.396, 619976.521; 46°53'20.50416"N, 26°34'22.75953"E
+		[46.889042969444446, 26.573136519444443],  //600027.180, 619987.748; 46°53'20.55469"N, 26°34'23.29147"E
+		[46.887122175, 26.57287011388889], // 599813.311, 619971.700; 46°53'13.63983"N, 26°34'22.33241"E
+		[46.88714023055555, 26.57255357777778], //599814.838, 619947.542;  46°53'13.70483"N,  26°34'21.19288"E
+		[46.88744356944444, 26.57276868888889], //599848.875, 619963.261;  46°53'14.79685"N,  26°34'21.96728"E
+		],{color: 'green', fillColor: '#9fdd6c',fillOpacity: 0.5}).addTo(map);
+    };	
+	
+</script>
+</body>
