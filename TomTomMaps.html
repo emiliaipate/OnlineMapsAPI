@@ -21,7 +21,9 @@
 		
 		// add an OnlineMaps tile layer
         L.tileLayer('https://{s}.api.tomtom.com/map/1/tile/basic/main/{z}/{x}/{y}.png?key={apiKey}', {
-            apiKey: 'ENTER-API-KEY'
+            apiKey: 'ENTER-API-KEY',
+			attribution: 'Map data &copy; <a href="http://tomtom.com">TomTom Map</a>',
+			maxZoom: 18
         }).addTo(map);
 		
 		//#nbr cadastru: 50833'
